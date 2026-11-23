@@ -68,9 +68,20 @@ footer b{color:#9cb8d1;letter-spacing:2px;direction:ltr;display:inline-block}
   </div>
 
   <header class="hero">
-    <div class="orbit"><span class="mark">ف</span></div>
+    <div class="wordmark" role="img" aria-label="شعار الفرات">
+      <svg viewBox="0 0 720 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="water" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9fbff"/><stop offset=".48" stop-color="#78ddf7"/><stop offset="1" stop-color="#168fe0"/></linearGradient>
+          <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0876ce"/><stop offset=".5" stop-color="#28c9f2"/><stop offset="1" stop-color="#0876ce"/></linearGradient>
+          <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <path d="M78 47 C205 -4 504 -4 642 48" fill="none" stroke="url(#wave)" stroke-width="13" stroke-linecap="round" opacity=".95" filter="url(#glow)"/>
+        <text x="360" y="143" text-anchor="middle" direction="rtl" font-family="Tahoma,Arial,sans-serif" font-size="118" font-weight="900" fill="url(#water)" stroke="#b8f1ff" stroke-width="1.5" paint-order="stroke" style="filter:drop-shadow(0 8px 10px #00172d)">الفرات</text>
+        <path d="M65 174 C174 126 250 205 360 165 S548 132 655 176" fill="none" stroke="url(#wave)" stroke-width="17" stroke-linecap="round" filter="url(#glow)"/>
+        <path d="M112 199 C220 164 270 220 372 190 S548 164 610 195" fill="none" stroke="#72ddf7" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+      </svg>
+    </div>
     <h1>ALFURAT</h1>
-    <p class="arabic">الفرات</p>
     <p class="subtitle">للتصوير والاستنساخ<br>خدماتك الورقية والرقمية بمكان واحد</p>
     <span class="tagline"><i></i> دقة في العمل · سهولة في التواصل</span>
   </header>
