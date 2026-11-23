@@ -3,80 +3,111 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#082d55">
-<meta name="description" content="الفرات للتصوير والاستنساخ - تصوير الهويات والمعاملات والطباعة والاستنساخ">
-<title>الفرات | ALFURAT</title>
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="الفرات ALFURAT للتصوير والاستنساخ - تصوير الهويات والمعاملات والطباعة">
+<title>ALFURAT | الفرات</title>
 <style>
-:root{color-scheme:light;--navy:#082d55;--muted:#718198;--line:#e7edf4}
+:root{color-scheme:dark;--bg:#07111f;--panel:#0e1c2e;--panel2:#12243a;--line:#203650;--text:#edf5ff;--muted:#91a5bc;--blue:#48b8ff;--cyan:#72ddf7}
 *{box-sizing:border-box}
-html{min-height:100%;background:#f4f7fb}
-body{margin:0;min-height:100vh;font-family:Tahoma,Arial,sans-serif;color:var(--navy);background:radial-gradient(ellipse at 50% 0%,#e4f1ff 0,transparent 48%),#f7f9fc}
-main{width:min(100% - 32px,440px);margin:auto;padding:48px 0 28px}
-header{text-align:center;margin-bottom:25px}
-.mark{width:66px;height:66px;margin:0 auto 18px;border-radius:22px;background:linear-gradient(145deg,#0b3d70,#1684d5);display:grid;place-items:center;color:white;font-size:30px;font-weight:900;box-shadow:0 12px 26px #0b4a832b}
-h1{font-size:clamp(38px,10vw,48px);margin:0;font-weight:900;letter-spacing:-1px}
-.latin{direction:ltr;font-size:13px;font-weight:800;letter-spacing:6px;color:#5280aa;margin:7px 0 17px}
-.subtitle{margin:0;color:#536b85;font-size:16px;line-height:1.8}
-.section{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 7px 22px #173b6009}
-.section h2{font-size:16px;margin:0 0 12px;color:#123f6b}
+html{min-height:100%;background:var(--bg);scroll-behavior:smooth}
+body{margin:0;min-height:100vh;font-family:Tahoma,Arial,sans-serif;color:var(--text);background:radial-gradient(ellipse at 50% -12%,#16446b 0,transparent 42%),radial-gradient(ellipse at 100% 48%,#102d48 0,transparent 34%),var(--bg)}
+main{width:min(100% - 34px,490px);margin:auto;padding:30px 0 34px}
+.topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:38px;color:#91a9c2;font-size:11px;letter-spacing:1px}
+.status{display:flex;align-items:center;gap:7px;color:#a8c0d7;letter-spacing:0}
+.dot{width:7px;height:7px;border-radius:50%;background:#42d69a;box-shadow:0 0 12px #42d69a}
+.hero{text-align:center;position:relative;padding:12px 0 30px}
+.orbit{width:92px;height:92px;margin:0 auto 20px;border-radius:29px;border:1px solid #34729c;background:linear-gradient(145deg,#183b5b,#0b1b2d);display:grid;place-items:center;box-shadow:0 0 0 9px #163a592b,0 15px 45px #0008;position:relative}
+.orbit:after{content:"";position:absolute;inset:-5px;border-radius:33px;border:1px solid #48b8ff36}
+.mark{font-size:45px;font-weight:900;color:#dff7ff;text-shadow:0 0 22px #48b8ff8a}
+h1{font-size:clamp(39px,10vw,51px);letter-spacing:5px;direction:ltr;margin:0;font-weight:900}
+.arabic{font-size:18px;font-weight:800;color:#dcecff;margin:8px 0 5px}
+.subtitle{font-size:13px;color:var(--muted);margin:0;line-height:1.9}
+.tagline{display:inline-flex;align-items:center;gap:8px;margin-top:19px;padding:8px 13px;border:1px solid #294a67;border-radius:30px;background:#0c2033;color:#b9d5ed;font-size:11px}
+.tagline i{width:5px;height:5px;border-radius:50%;background:var(--cyan);box-shadow:0 0 9px var(--cyan)}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin:13px 2px 13px}
+.section-head h2{font-size:16px;margin:0;font-weight:800}
+.section-head span{font-size:10px;color:#7691aa;letter-spacing:1px}
 .services{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.service{background:#f5f8fc;border-radius:13px;padding:12px 10px;font-size:13px;font-weight:700;color:#345875;text-align:center}
-.explain{font-size:13px;line-height:1.9;color:#64788e;margin:12px 0 0}
-.hours{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px}
-.hours strong{color:#123f6b}
-.prompt{font-size:15px;font-weight:700;color:#254c73;text-align:center;margin:20px 0 13px}
-.actions{display:grid;gap:13px}
-.action{min-height:86px;border:1px solid var(--line);border-radius:20px;background:#fff;display:flex;align-items:center;gap:15px;padding:13px 16px;text-decoration:none;color:var(--navy);box-shadow:0 7px 22px #173b6010;transition:transform .16s,box-shadow .16s}
-.action:active{transform:scale(.985);box-shadow:0 3px 10px #173b6018}
-.icon{width:54px;height:54px;flex:0 0 54px;border-radius:17px;display:grid;place-items:center;color:white}
-.icon svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
-.wa .icon{background:#16a36a}.tg .icon{background:#219bd2}
-.details{min-width:0;flex:1}
-.details strong{display:block;font-size:18px;margin-bottom:5px}
-.details small{display:block;color:var(--muted);font-size:12px}
-.arrow{font-size:27px;color:#9aabba;direction:ltr}
-footer{text-align:center;margin-top:25px;color:#91a0b2;font-size:11px;line-height:1.8}
-@media(min-height:800px){main{padding-top:65px}}
+.service{min-height:91px;padding:15px 13px;border-radius:17px;border:1px solid var(--line);background:linear-gradient(145deg,#11253a,#0b1929);display:flex;flex-direction:column;justify-content:space-between;gap:13px;box-shadow:0 10px 25px #0002}
+.service-icon{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:#173b59;color:#78d8ff;font-size:17px}
+.service strong{font-size:12px;line-height:1.7;color:#e3effb}
+.note{margin:13px 0 0;padding:14px 15px;border:1px solid #1e3c57;border-radius:15px;background:#0b1b2b;color:#a9bdd1;font-size:12px;line-height:2}
+.note b{color:#dcecff}
+.hours{margin-top:14px;padding:15px 16px;border:1px solid #214765;border-radius:17px;background:linear-gradient(110deg,#102b42,#0d1d30);display:flex;align-items:center;gap:13px}
+.clock{width:40px;height:40px;flex:0 0 40px;border-radius:13px;background:#173d59;display:grid;place-items:center;color:#79d9ff;font-size:19px}
+.hours-info{flex:1;min-width:0}
+.hours-info small{display:block;color:#8da6bd;font-size:11px;margin-bottom:5px}
+.hours-info strong{font-size:13px;color:#f0f7ff}
+.hours-badge{font-size:10px;color:#72e0b2;background:#12382f;border:1px solid #1c5a48;border-radius:20px;padding:6px 9px;white-space:nowrap}
+.contact-title{text-align:center;margin:28px 0 13px}
+.contact-title h2{font-size:16px;margin:0 0 6px}
+.contact-title p{font-size:11px;color:var(--muted);margin:0}
+.actions{display:grid;gap:11px}
+.action{min-height:78px;padding:12px 14px;border-radius:17px;border:1px solid #233e58;background:linear-gradient(110deg,#13283e,#0d1b2c);display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--text);box-shadow:0 12px 28px #0003;transition:transform .18s,border-color .18s}
+.action:active{transform:scale(.985)}
+.action:hover{border-color:#4385ad}
+.brand-icon{width:47px;height:47px;flex:0 0 47px;border-radius:14px;display:grid;place-items:center;color:white}
+.brand-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wa .brand-icon{background:linear-gradient(145deg,#1cb879,#087d56)}
+.tg .brand-icon{background:linear-gradient(145deg,#37b9e9,#1476b7)}
+.details{flex:1;min-width:0}
+.details strong{display:block;font-size:15px;margin-bottom:4px}
+.details small{display:block;color:#91a6bb;font-size:11px}
+.arrow{font-size:23px;color:#7894ad;direction:ltr}
+footer{text-align:center;margin-top:28px;padding-top:17px;border-top:1px solid #1a2b3e;color:#70879d;font-size:10px;line-height:2}
+footer b{color:#9cb8d1;letter-spacing:2px;direction:ltr;display:inline-block}
+@media(min-width:600px){main{padding-top:42px}.hero{padding-bottom:38px}}
+@media(max-width:360px){main{width:calc(100% - 24px)}.hours-badge{font-size:9px;padding:5px 7px}.service{padding:12px 10px}}
 </style>
 </head>
 <body>
 <main>
-<header>
-  <div class="mark" aria-hidden="true">ف</div>
-  <h1>الفرات</h1>
-  <div class="latin">ALFURAT</div>
-  <p class="subtitle">للتصوير والاستنساخ</p>
-</header>
-
-<section class="section" aria-label="خدماتنا">
-  <h2>خدماتنا</h2>
-  <div class="services">
-    <div class="service">تصوير الهويات والمستمسكات</div>
-    <div class="service">تصوير المعاملات</div>
-    <div class="service">طباعة المستندات</div>
-    <div class="service">الاستنساخ والتصوير</div>
+  <div class="topline">
+    <span>ALFURAT STUDIO</span>
+    <span class="status"><i class="dot"></i> نستقبل طلباتكم</span>
   </div>
-  <p class="explain">تگدر ترسل ملفاتك أو صور مستمسكاتك إلنا مباشرة عبر واتساب أو تلغرام، وتكتب شنو الخدمة المطلوبة حتى نجهز طلبك بسهولة.</p>
-</section>
 
-<section class="section" aria-label="أوقات الدوام">
-  <div class="hours"><strong>أوقات الدوام</strong><span>يومياً من 8:00 صباحاً إلى 11:00 مساءً</span></div>
-</section>
+  <header class="hero">
+    <div class="orbit"><span class="mark">ف</span></div>
+    <h1>ALFURAT</h1>
+    <p class="arabic">الفرات</p>
+    <p class="subtitle">للتصوير والاستنساخ<br>خدماتك الورقية والرقمية بمكان واحد</p>
+    <span class="tagline"><i></i> دقة في العمل · سهولة في التواصل</span>
+  </header>
 
-<p class="prompt">اختار الطريقة المناسبة إلك لإرسال الملفات</p>
-<section class="actions" aria-label="طرق التواصل">
-  <a class="action wa" href="https://wa.me/9647515730288?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D8%B1%D8%B3%D9%84%20%D9%85%D9%84%D9%81%D8%A7%D8%AA%20%D9%84%D9%84%D8%B7%D8%A8%D8%A7%D8%B9%D8%A9%20%D9%88%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%86%D8%B3%D8%A7%D8%AE" target="_blank" rel="noopener">
-    <span class="icon"><svg viewBox="0 0 24 24"><path d="M20.2 11.7a8.2 8.2 0 0 1-12.1 7.2L3 20l1.2-4.8a8.2 8.2 0 1 1 16-3.5Z"/><path d="M8.5 8.2c.3-.6.6-.6 1-.6h.5c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4 0 .7.5.8 1.2 1.5 2 2 .3.2.5.2.7 0l.8-.9c.2-.2.4-.3.7-.2l1.7.8c.3.1.4.3.4.6 0 .4-.2 1.1-.7 1.5-.5.4-1.1.6-1.8.5-1-.1-2.3-.7-3.7-1.9-1.4-1.2-2.4-2.7-2.7-3.8-.3-.9-.1-1.7.5-2.3Z"/></svg></span>
-    <span class="details"><strong>WhatsApp</strong><small>إرسال الملفات والصور مباشرة</small></span>
-    <span class="arrow">›</span>
-  </a>
-  <a class="action tg" href="https://t.me/+9647515730288" target="_blank" rel="noopener">
-    <span class="icon"><svg viewBox="0 0 24 24"><path d="m21 3-7.2 18-3.7-7.1L3 10.2 21 3Z"/><path d="m10.1 13.9 4.2-4.2"/></svg></span>
-    <span class="details"><strong>Telegram</strong><small>إرسال الملفات والمستندات</small></span>
-    <span class="arrow">›</span>
-  </a>
-</section>
-<footer>الفرات للتصوير والاستنساخ<br>خدمتك أسهل وأسرع</footer>
+  <section aria-label="خدماتنا">
+    <div class="section-head"><h2>خدماتنا</h2><span>OUR SERVICES</span></div>
+    <div class="services">
+      <div class="service"><span class="service-icon">▣</span><strong>تصوير الهويات والمستمسكات</strong></div>
+      <div class="service"><span class="service-icon">▤</span><strong>تصوير المعاملات</strong></div>
+      <div class="service"><span class="service-icon">▧</span><strong>طباعة المستندات</strong></div>
+      <div class="service"><span class="service-icon">▦</span><strong>الاستنساخ والتصوير</strong></div>
+    </div>
+    <p class="note"><b>شلون تطلب؟</b><br>أرسل ملفاتك أو صور مستمسكاتك عبر واتساب أو تلغرام، واكتب نوع الخدمة المطلوبة حتى نراجع طلبك ونجهزه بسهولة.</p>
+  </section>
+
+  <section class="hours" aria-label="أوقات الدوام">
+    <span class="clock">◷</span>
+    <span class="hours-info"><small>أوقات الدوام اليومية</small><strong>من 8:00 صباحاً إلى 11:00 مساءً</strong></span>
+    <span class="hours-badge">يومياً</span>
+  </section>
+
+  <section aria-label="التواصل">
+    <div class="contact-title"><h2>أرسل ملفاتك الآن</h2><p>اختار التطبيق المناسب وتواصل ويانه مباشرة</p></div>
+    <div class="actions">
+      <a class="action wa" href="https://wa.me/9647515730288?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D8%B1%D8%B3%D9%84%20%D9%85%D9%84%D9%81%D8%A7%D8%AA%20%D9%84%D9%84%D8%B7%D8%A8%D8%A7%D8%B9%D8%A9%20%D9%88%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%86%D8%B3%D8%A7%D8%AE" target="_blank" rel="noopener">
+        <span class="brand-icon"><svg viewBox="0 0 24 24"><path d="M20.2 11.7a8.2 8.2 0 0 1-12.1 7.2L3 20l1.2-4.8a8.2 8.2 0 1 1 16-3.5Z"/><path d="M8.5 8.2c.3-.6.6-.6 1-.6h.5c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4 0 .7.5.8 1.2 1.5 2 2 .3.2.5.2.7 0l.8-.9c.2-.2.4-.3.7-.2l1.7.8c.3.1.4.3.4.6 0 .4-.2 1.1-.7 1.5-.5.4-1.1.6-1.8.5-1-.1-2.3-.7-3.7-1.9-1.4-1.2-2.4-2.7-2.7-3.8-.3-.9-.1-1.7.5-2.3Z"/></svg></span>
+        <span class="details"><strong>WhatsApp</strong><small>إرسال الملفات والصور مباشرة</small></span>
+        <span class="arrow">‹</span>
+      </a>
+      <a class="action tg" href="https://t.me/+9647515730288" target="_blank" rel="noopener">
+        <span class="brand-icon"><svg viewBox="0 0 24 24"><path d="m21 3-7.2 18-3.7-7.1L3 10.2 21 3Z"/><path d="m10.1 13.9 4.2-4.2"/></svg></span>
+        <span class="details"><strong>Telegram</strong><small>إرسال الملفات والمستندات</small></span>
+        <span class="arrow">‹</span>
+      </a>
+    </div>
+  </section>
+  <footer><b>ALFURAT</b><br>الفرات للتصوير والاستنساخ · خدمتك أسهل وأسرع</footer>
 </main>
 </body>
 </html>
