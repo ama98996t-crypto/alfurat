@@ -3,86 +3,62 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#062b61">
-<meta name="description" content="الفرات - خدمات الإنترنت والتواصل">
+<meta name="theme-color" content="#082d55">
+<meta name="description" content="الفرات للتصوير والاستنساخ - أرسل ملفاتك بسهولة عبر واتساب أو تلغرام">
 <title>الفرات | ALFURAT</title>
 <style>
-:root{--navy:#06285a;--blue:#0876d8;--white:#fff}
+:root{color-scheme:light;--navy:#082d55;--blue:#176fbd;--muted:#718198;--line:#e7edf4}
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:Tahoma,Arial,sans-serif}
-body{min-height:100vh;color:#09254c;background:radial-gradient(ellipse at 50% 72%,#fff 0,#eaf5ff 40%,#c9e2f9 100%);overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0 0 auto;height:42vh;background:linear-gradient(145deg,#0a3f82 0%,#06275a 58%,#0c4b91 100%);clip-path:polygon(0 0,100% 0,100% 65%,75% 92%,44% 100%,0 74%);z-index:-1}
-body:after{content:"";position:fixed;inset:auto 0 0;height:25vh;background:radial-gradient(ellipse at 50% 100%,rgba(0,143,255,.24),transparent 68%);z-index:-1}
-.wrap{width:min(100% - 28px,520px);margin:0 auto;padding:24px 0 28px}
-.brand{text-align:center;color:#fff;padding:4px 0 18px}
-.zain{font-size:clamp(27px,7vw,42px);font-weight:800;letter-spacing:1px;display:flex;justify-content:center;align-items:center;gap:9px}
-.zain-mark{width:39px;height:39px;border:4px solid #fff;border-left-color:transparent;border-radius:50%;position:relative;transform:rotate(-35deg)}
-.zain-mark:after{content:"";position:absolute;inset:6px;border:3px solid #fff;border-left-color:transparent;border-radius:50%}
-.wifi{font-size:55px;line-height:1;margin:9px 0 0;color:#58caff;text-shadow:0 0 15px #16aaff}
-.brand h1{font-size:clamp(42px,11vw,66px);line-height:1.15;margin:0;color:white;font-weight:900;text-shadow:0 4px 14px #001d45}
-.brand .latin{direction:ltr;letter-spacing:8px;font-weight:700;color:#e8f5ff;font-size:clamp(18px,5vw,25px);margin-top:8px}
-.brand .tag{font-size:clamp(17px,4.7vw,23px);font-weight:800;margin:25px 0 0;color:#092e60}
-.gold{width:95px;height:4px;border-radius:9px;background:#e8a51b;margin:12px auto 24px}
-.actions{display:grid;gap:17px}
-.action{min-height:116px;border-radius:28px;display:grid;grid-template-columns:90px 1fr 30px;align-items:center;gap:14px;padding:14px 18px;color:#fff;text-decoration:none;border:2px solid rgba(255,255,255,.88);box-shadow:0 12px 24px rgba(0,53,112,.18),inset 0 1px 0 rgba(255,255,255,.45);position:relative;overflow:hidden;transition:transform .15s,filter .15s}
-.action:before{content:"";position:absolute;inset:0;background:linear-gradient(155deg,rgba(255,255,255,.14),transparent 43%,rgba(0,0,0,.12));pointer-events:none}
-.action:active{transform:scale(.985);filter:brightness(.96)}
-.internet{background:linear-gradient(110deg,#03417f,#0879dc 55%,#034a9b)}
-.whatsapp{background:linear-gradient(110deg,#007746,#05a66c 55%,#007b4c)}
-.telegram{background:linear-gradient(110deg,#087db9,#0ca9e8 55%,#0876b5)}
-.ico{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:rgba(0,27,75,.22);border:1px solid rgba(255,255,255,.16)}
-.ico svg{width:48px;height:48px;fill:none;stroke:#fff;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
-.copy{border-right:2px solid rgba(255,255,255,.65);padding-right:16px;min-width:0}
-.copy strong{display:block;font-size:clamp(23px,6vw,31px);line-height:1.35}
-.copy small{display:block;font-size:clamp(14px,3.8vw,18px);margin-top:3px;direction:ltr;text-align:right;white-space:nowrap}
-.chev{font-size:36px;font-family:Arial;direction:ltr}
-.router{margin:27px auto 0;width:210px;height:130px;border-radius:30px 30px 25px 25px;background:linear-gradient(145deg,#fff,#d9e8f7);border:2px solid #b8dcfa;box-shadow:0 13px 24px rgba(0,75,150,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative}
-.router:after{content:"";position:absolute;width:240px;height:12px;border:2px solid #40caff;border-radius:50%;bottom:-16px;box-shadow:0 0 16px #29baff}
-.lights{background:#1e2630;color:#fff;border-radius:20px;padding:7px 20px;font-size:13px;letter-spacing:7px}
-.router-label{font-size:21px;font-weight:800;color:#164779}
-.router-label span{font-size:14px;font-weight:500;margin-right:8px}
-footer{text-align:center;color:#37618b;font-size:12px;margin-top:28px}
-.dialog{position:fixed;inset:0;background:rgba(0,18,48,.62);display:none;align-items:center;justify-content:center;padding:20px;z-index:5}
-.dialog.show{display:flex}
-.panel{width:min(100%,390px);background:#fff;border-radius:22px;padding:24px;text-align:center;box-shadow:0 20px 60px #001c45}
-.panel h2{margin:0 0 12px;color:#07346e}
-.panel p{line-height:1.8;color:#35516e;margin:8px 0 18px}
-.network{direction:ltr;font-weight:800;font-size:22px;color:#086dc3;background:#edf6ff;padding:12px;border-radius:12px}
-.panel button{border:0;border-radius:12px;padding:12px 20px;font-size:16px;font-weight:700;background:#086fc8;color:#fff;margin:5px;cursor:pointer}
-.panel .close{background:#e8eef5;color:#173b63}
-@media(max-width:390px){.action{grid-template-columns:70px 1fr 20px;gap:10px;padding:12px}.ico{width:64px;height:64px}.ico svg{width:41px;height:41px}.copy{padding-right:11px}.action{min-height:102px}}
+html{min-height:100%;background:#f4f7fb}
+body{margin:0;min-height:100vh;font-family:Tahoma,Arial,sans-serif;color:var(--navy);background:radial-gradient(ellipse at 50% 0%,#e4f1ff 0,transparent 48%),#f7f9fc}
+main{width:min(100% - 32px,440px);margin:auto;padding:clamp(48px,12vh,105px) 0 28px}
+header{text-align:center;margin-bottom:34px}
+.mark{width:66px;height:66px;margin:0 auto 18px;border-radius:22px;background:linear-gradient(145deg,#0b3d70,#1684d5);display:grid;place-items:center;color:white;font-size:30px;font-weight:900;box-shadow:0 12px 26px #0b4a832b}
+h1{font-size:clamp(38px,10vw,48px);margin:0;font-weight:900;letter-spacing:-1px}
+.latin{direction:ltr;font-size:13px;font-weight:800;letter-spacing:6px;color:#5280aa;margin:7px 0 17px}
+.subtitle{margin:0;color:#536b85;font-size:16px;line-height:1.8}
+.prompt{font-size:15px;font-weight:700;color:#254c73;text-align:center;margin:0 0 15px}
+.actions{display:grid;gap:13px}
+.action{min-height:86px;border:1px solid var(--line);border-radius:20px;background:#fff;display:flex;align-items:center;gap:15px;padding:13px 16px;text-decoration:none;color:var(--navy);box-shadow:0 7px 22px #173b6010;transition:transform .16s,box-shadow .16s}
+.action:active{transform:scale(.985);box-shadow:0 3px 10px #173b6018}
+.icon{width:54px;height:54px;flex:0 0 54px;border-radius:17px;display:grid;place-items:center;color:white}
+.icon svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+.wifi .icon{background:#176fbd}.wa .icon{background:#16a36a}.tg .icon{background:#219bd2}
+.details{min-width:0;flex:1}
+.details strong{display:block;font-size:18px;margin-bottom:5px}
+.details small{display:block;color:var(--muted);font-size:12px}
+.arrow{font-size:27px;color:#9aabba;direction:ltr}
+footer{text-align:center;margin-top:30px;color:#91a0b2;font-size:11px;line-height:1.8}
+@media(min-height:800px){main{padding-top:clamp(80px,15vh,145px)}}
 </style>
 </head>
 <body>
-<main class="wrap">
-<header class="brand">
-  <div class="zain"><span class="zain-mark" aria-hidden="true"></span><span>zain</span></div>
-  <div class="wifi" aria-hidden="true">⌁</div>
+<main>
+<header>
+  <div class="mark" aria-hidden="true">ف</div>
   <h1>الفرات</h1>
   <div class="latin">ALFURAT</div>
-  <p class="tag">خدمات الإنترنت والتواصل</p>
-  <div class="gold"></div>
+  <p class="subtitle">للتصوير والاستنساخ</p>
 </header>
-<section class="actions" aria-label="الخدمات">
-  <a class="action internet" href="intent:#Intent;action=android.settings.WIFI_SETTINGS;end" id="internet">
-    <span class="ico"><svg viewBox="0 0 48 48"><path d="M5 17c11-10 27-10 38 0M11 24c8-7 18-7 26 0M18 31c4-3 8-3 12 0"/><circle cx="24" cy="38" r="2.5" fill="#fff" stroke="none"/></svg></span>
-    <span class="copy"><strong>الإنترنت</strong><small>الاتصال بشبكة alfurat</small></span><span class="chev">›</span>
+<p class="prompt">اختار الطريقة المناسبة إلك</p>
+<section class="actions" aria-label="طرق التواصل والاتصال">
+  <a class="action wifi" href="intent:#Intent;action=android.settings.WIFI_SETTINGS;end" aria-label="الاتصال بشبكة الإنترنت">
+    <span class="icon"><svg viewBox="0 0 24 24"><path d="M2 8.8a15 15 0 0 1 20 0M5.5 12.3a10 10 0 0 1 13 0M9 15.8a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1" fill="currentColor" stroke="none"/></svg></span>
+    <span class="details"><strong>الاتصال بالإنترنت</strong><small>شبكة ALFURAT</small></span>
+    <span class="arrow">›</span>
   </a>
-  <a class="action whatsapp" href="https://wa.me/9647515730288" target="_blank" rel="noopener">
-    <span class="ico"><svg viewBox="0 0 48 48"><path d="M40 23a17 17 0 0 1-25 15L7 40l2-8A17 17 0 1 1 40 23Z"/><path d="M18 15c-2 2-1 6 3 10s8 5 10 3l2-3-6-3-2 2c-2-1-4-3-5-5l2-2-3-5Z"/></svg></span>
-    <span class="copy"><strong>WhatsApp</strong><small>+964 751 573 0288</small></span><span class="chev">›</span>
+  <a class="action wa" href="https://wa.me/9647515730288?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D8%B1%D8%B3%D9%84%20%D9%85%D9%84%D9%81%D8%A7%D8%AA%20%D9%84%D9%84%D8%B7%D8%A8%D8%A7%D8%B9%D8%A9%20%D9%88%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%86%D8%B3%D8%A7%D8%AE" target="_blank" rel="noopener">
+    <span class="icon"><svg viewBox="0 0 24 24"><path d="M20.2 11.7a8.2 8.2 0 0 1-12.1 7.2L3 20l1.2-4.8a8.2 8.2 0 1 1 16-3.5Z"/><path d="M8.5 8.2c.3-.6.6-.6 1-.6h.5c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4 0 .7.5.8 1.2 1.5 2 2 .3.2.5.2.7 0l.8-.9c.2-.2.4-.3.7-.2l1.7.8c.3.1.4.3.4.6 0 .4-.2 1.1-.7 1.5-.5.4-1.1.6-1.8.5-1-.1-2.3-.7-3.7-1.9-1.4-1.2-2.4-2.7-2.7-3.8-.3-.9-.1-1.7.5-2.3Z"/></svg></span>
+    <span class="details"><strong>WhatsApp</strong><small>إرسال الملفات والصور مباشرة</small></span>
+    <span class="arrow">›</span>
   </a>
-  <a class="action telegram" href="https://t.me/+9647515730288" target="_blank" rel="noopener">
-    <span class="ico"><svg viewBox="0 0 48 48"><path d="m5 22 36-14-8 34-11-10-7 6 1-11L36 14 15 25Z" fill="#fff" stroke="#fff"/></svg></span>
-    <span class="copy"><strong>Telegram</strong><small>+964 751 573 0288</small></span><span class="chev">›</span>
+  <a class="action tg" href="https://t.me/+9647515730288" target="_blank" rel="noopener">
+    <span class="icon"><svg viewBox="0 0 24 24"><path d="m21 3-7.2 18-3.7-7.1L3 10.2 21 3Z"/><path d="m10.1 13.9 4.2-4.2"/></svg></span>
+    <span class="details"><strong>Telegram</strong><small>إرسال الملفات والمستندات</small></span>
+    <span class="arrow">›</span>
   </a>
 </section>
-<div class="router" aria-label="راوتر زين"><div class="lights">▮▮　⌁　▣</div><div class="router-label">zain <span>4.5G+</span></div></div>
-<footer>ALFURAT · بوابة خدمات الإنترنت والتواصل</footer>
+<footer>الفرات للتصوير والاستنساخ<br>خدمتك أسهل وأسرع</footer>
 </main>
-<script>
-// Android devices open the Wi-Fi settings directly from the Internet button.
-// The user selects the alfurat network and confirms connection in system settings.
-</script>
 </body>
 </html>
