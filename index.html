@@ -1,125 +1,58 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#07111f">
-<meta name="description" content="الفرات ALFURAT للتصوير والاستنساخ - تصوير الهويات والمعاملات والطباعة">
-<title>ALFURAT | الفرات</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101c2c"><title>مكتب الفرات | تنظيم عقود السيارات</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-:root{color-scheme:dark;--bg:#07111f;--panel:#0e1c2e;--panel2:#12243a;--line:#203650;--text:#edf5ff;--muted:#91a5bc;--blue:#48b8ff;--cyan:#72ddf7}
-*{box-sizing:border-box}
-html{min-height:100%;background:var(--bg);scroll-behavior:smooth}
-body{margin:0;min-height:100vh;font-family:Tahoma,Arial,sans-serif;color:var(--text);background:radial-gradient(ellipse at 50% -12%,#16446b 0,transparent 42%),radial-gradient(ellipse at 100% 48%,#102d48 0,transparent 34%),var(--bg)}
-main{width:min(100% - 34px,490px);margin:auto;padding:30px 0 34px}
-.topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:38px;color:#91a9c2;font-size:11px;letter-spacing:1px}
-.status{display:flex;align-items:center;gap:7px;color:#a8c0d7;letter-spacing:0}
-.dot{width:7px;height:7px;border-radius:50%;background:#42d69a;box-shadow:0 0 12px #42d69a}
-.hero{text-align:center;position:relative;padding:12px 0 30px}
-.wordmark{width:min(100%,390px);margin:0 auto 18px;display:block;line-height:0}
-.wordmark svg{display:block;width:100%;height:auto;overflow:visible}
-.orbit{width:92px;height:92px;margin:0 auto 20px;border-radius:29px;border:1px solid #34729c;background:linear-gradient(145deg,#183b5b,#0b1b2d);display:grid;place-items:center;box-shadow:0 0 0 9px #163a592b,0 15px 45px #0008;position:relative}
-.orbit:after{content:"";position:absolute;inset:-5px;border-radius:33px;border:1px solid #48b8ff36}
-.mark{font-size:45px;font-weight:900;color:#dff7ff;text-shadow:0 0 22px #48b8ff8a}
-h1{font-size:clamp(39px,10vw,51px);letter-spacing:5px;direction:ltr;margin:0;font-weight:900}
-.arabic{font-size:18px;font-weight:800;color:#dcecff;margin:8px 0 5px}
-.subtitle{font-size:13px;color:var(--muted);margin:0;line-height:1.9}
-.tagline{display:inline-flex;align-items:center;gap:8px;margin-top:19px;padding:8px 13px;border:1px solid #294a67;border-radius:30px;background:#0c2033;color:#b9d5ed;font-size:11px}
-.tagline i{width:5px;height:5px;border-radius:50%;background:var(--cyan);box-shadow:0 0 9px var(--cyan)}
-.section-head{display:flex;align-items:center;justify-content:space-between;margin:13px 2px 13px}
-.section-head h2{font-size:16px;margin:0;font-weight:800}
-.section-head span{font-size:10px;color:#7691aa;letter-spacing:1px}
-.services{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.service{min-height:91px;padding:15px 13px;border-radius:17px;border:1px solid var(--line);background:linear-gradient(145deg,#11253a,#0b1929);display:flex;flex-direction:column;justify-content:space-between;gap:13px;box-shadow:0 10px 25px #0002}
-.service-icon{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:#173b59;color:#78d8ff;font-size:17px}
-.service strong{font-size:12px;line-height:1.7;color:#e3effb}
-.note{margin:13px 0 0;padding:14px 15px;border:1px solid #1e3c57;border-radius:15px;background:#0b1b2b;color:#a9bdd1;font-size:12px;line-height:2}
-.note b{color:#dcecff}
-.hours{margin-top:14px;padding:15px 16px;border:1px solid #214765;border-radius:17px;background:linear-gradient(110deg,#102b42,#0d1d30);display:flex;align-items:center;gap:13px}
-.clock{width:40px;height:40px;flex:0 0 40px;border-radius:13px;background:#173d59;display:grid;place-items:center;color:#79d9ff;font-size:19px}
-.hours-info{flex:1;min-width:0}
-.hours-info small{display:block;color:#8da6bd;font-size:11px;margin-bottom:5px}
-.hours-info strong{font-size:13px;color:#f0f7ff}
-.hours-badge{font-size:10px;color:#72e0b2;background:#12382f;border:1px solid #1c5a48;border-radius:20px;padding:6px 9px;white-space:nowrap}
-.contact-title{text-align:center;margin:28px 0 13px}
-.contact-title h2{font-size:16px;margin:0 0 6px}
-.contact-title p{font-size:11px;color:var(--muted);margin:0}
-.actions{display:grid;gap:11px}
-.action{min-height:78px;padding:12px 14px;border-radius:17px;border:1px solid #233e58;background:linear-gradient(110deg,#13283e,#0d1b2c);display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--text);box-shadow:0 12px 28px #0003;transition:transform .18s,border-color .18s}
-.action:active{transform:scale(.985)}
-.action:hover{border-color:#4385ad}
-.brand-icon{width:47px;height:47px;flex:0 0 47px;border-radius:14px;display:grid;place-items:center;color:white}
-.brand-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.wa .brand-icon{background:linear-gradient(145deg,#1cb879,#087d56)}
-.tg .brand-icon{background:linear-gradient(145deg,#37b9e9,#1476b7)}
-.details{flex:1;min-width:0}
-.details strong{display:block;font-size:15px;margin-bottom:4px}
-.details small{display:block;color:#91a6bb;font-size:11px}
-.arrow{font-size:23px;color:#7894ad;direction:ltr}
-footer{text-align:center;margin-top:28px;padding-top:17px;border-top:1px solid #1a2b3e;color:#70879d;font-size:10px;line-height:2}
-footer b{color:#9cb8d1;letter-spacing:2px;direction:ltr;display:inline-block}
-@media(min-width:600px){main{padding-top:42px}.hero{padding-bottom:38px}}
-@media(max-width:360px){main{width:calc(100% - 24px)}.hours-badge{font-size:9px;padding:5px 7px}.service{padding:12px 10px}}
-</style>
-</head>
+:root{--bg:#f3f5f8;--navy:#101c2c;--navy2:#182a40;--gold:#c5a66b;--ink:#1d2938;--muted:#7d8998;--line:#e5e9ef;--white:#fff;--green:#16845c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Tahoma,Arial,sans-serif;color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}.layout{min-height:100vh;display:grid;grid-template-columns:250px 1fr}.sidebar{background:var(--navy);color:#eaf0f6;padding:25px 16px;display:flex;flex-direction:column;gap:26px}.brand{display:flex;align-items:center;gap:12px;padding:4px 8px 22px;border-bottom:1px solid #ffffff18}.brand-mark{width:43px;height:43px;border:1px solid #bfa16a;border-radius:13px;display:grid;place-items:center;color:#e4c98f;font-size:24px;font-weight:bold}.brand strong{display:block;font-size:17px}.brand small{color:#9aabba;font-size:10px;display:block;margin-top:5px}.nav{display:grid;gap:7px}.nav button{border:0;background:transparent;color:#b6c2cf;text-align:right;padding:13px 14px;border-radius:10px;font-size:13px}.nav button.active,.nav button:hover{background:#ffffff12;color:#f2d7a1}.nav button span{display:inline-block;width:28px;color:#d2b57d}.side-foot{margin-top:auto;color:#8393a5;font-size:10px;line-height:2;padding:10px}.main{min-width:0}.topbar{height:74px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 32px}.topbar small{color:var(--muted)}.user-chip{background:#f4f0e7;color:#806b43;border-radius:30px;padding:9px 14px;font-size:12px}.content{max-width:1400px;margin:auto;padding:30px 32px}.heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:25px}.heading h1{font-size:24px;margin:0 0 8px}.heading p{font-size:12px;color:var(--muted);margin:0}.btn{border:0;border-radius:9px;padding:12px 17px;font-size:12px;font-weight:bold}.primary{background:var(--navy);color:white}.gold{background:var(--gold);color:#172334}.soft{background:#f2f4f7;color:#455366;border:1px solid var(--line)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:24px}.stat,.panel{background:white;border:1px solid var(--line);border-radius:14px}.stat{padding:19px}.stat small{font-size:11px;color:var(--muted)}.stat strong{display:block;font-size:27px;margin:12px 0 4px}.stat em{font-style:normal;color:var(--green);font-size:10px}.panel{padding:20px;margin-bottom:18px}.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.panel-head h2{font-size:15px;margin:0}.search{width:min(320px,100%);border:1px solid var(--line);background:#fafbfc;padding:11px 13px;border-radius:9px;font-size:12px;outline:none}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:650px}th,td{text-align:right;padding:14px 10px;border-bottom:1px solid #edf0f3;font-size:11px;white-space:nowrap}th{color:#8994a1;font-weight:normal;background:#fafbfc}td{color:#344154}.empty{text-align:center;padding:35px;color:#8994a1}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field label{display:block;font-size:11px;color:#657386;margin-bottom:7px}.field input,.field select,.field textarea{width:100%;border:1px solid #dfe5eb;border-radius:8px;padding:12px;background:white;outline:none;font-size:12px}.field textarea{min-height:75px;resize:vertical}.field.full{grid-column:1/-1}.form-actions{display:flex;gap:9px;justify-content:flex-start;margin-top:18px}.hidden{display:none!important}.login-screen{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at top,#263e56,var(--navy) 55%)}.login-card{width:min(410px,100%);background:white;border-radius:18px;padding:34px;box-shadow:0 25px 80px #0005}.login-logo{width:58px;height:58px;margin:0 auto 18px;border-radius:16px;background:var(--navy);color:#e2c58a;display:grid;place-items:center;font-size:30px}.login-card h1{text-align:center;font-size:21px;margin:0 0 8px}.login-card p{text-align:center;color:var(--muted);font-size:11px;margin:0 0 25px}.login-card .field{margin-bottom:14px}.error{color:#bd4242;font-size:11px;min-height:18px;margin-top:10px}.mobile-menu{display:none}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.sidebar{position:fixed;z-index:5;inset:0 auto 0 0;width:250px;transform:translateX(-105%);transition:.2s}.sidebar.open{transform:translateX(0)}.mobile-menu{display:inline-block;border:0;background:transparent;font-size:22px}.topbar{padding:0 17px}.content{padding:22px 16px}.stats{grid-template-columns:repeat(2,1fr)}.heading{align-items:center}.heading h1{font-size:20px}}
+@media(max-width:520px){.stats{gap:9px}.stat{padding:14px}.stat strong{font-size:22px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.heading .btn{padding:10px;font-size:10px}.user-chip{font-size:10px}}
+</style></head>
 <body>
-<main>
-  <div class="topline">
-    <span>ALFURAT STUDIO</span>
-    <span class="status"><i class="dot"></i> نستقبل طلباتكم</span>
-  </div>
-
-  <header class="hero">
-    <div class="wordmark" role="img" aria-label="شعار الفرات">
-      <svg viewBox="0 0 720 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="water" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9fbff"/><stop offset=".48" stop-color="#78ddf7"/><stop offset="1" stop-color="#168fe0"/></linearGradient>
-          <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0876ce"/><stop offset=".5" stop-color="#28c9f2"/><stop offset="1" stop-color="#0876ce"/></linearGradient>
-          <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        </defs>
-        <path d="M78 47 C205 -4 504 -4 642 48" fill="none" stroke="url(#wave)" stroke-width="13" stroke-linecap="round" opacity=".95" filter="url(#glow)"/>
-        <text x="360" y="143" text-anchor="middle" direction="rtl" font-family="Tahoma,Arial,sans-serif" font-size="118" font-weight="900" fill="url(#water)" stroke="#b8f1ff" stroke-width="1.5" paint-order="stroke" style="filter:drop-shadow(0 8px 10px #00172d)">الفرات</text>
-        <path d="M65 174 C174 126 250 205 360 165 S548 132 655 176" fill="none" stroke="url(#wave)" stroke-width="17" stroke-linecap="round" filter="url(#glow)"/>
-        <path d="M112 199 C220 164 270 220 372 190 S548 164 610 195" fill="none" stroke="#72ddf7" stroke-width="5" stroke-linecap="round" opacity=".85"/>
-      </svg>
-    </div>
-    <p class="subtitle">للتصوير والاستنساخ<br>خدماتك الورقية والرقمية بمكان واحد</p>
-    <span class="tagline"><i></i> دقة في العمل · سهولة في التواصل</span>
-  </header>
-
-  <section aria-label="خدماتنا">
-    <div class="section-head"><h2>خدماتنا</h2><span>OUR SERVICES</span></div>
-    <div class="services">
-      <div class="service"><span class="service-icon">▣</span><strong>تصوير الهويات والمستمسكات</strong></div>
-      <div class="service"><span class="service-icon">▤</span><strong>تصوير المعاملات</strong></div>
-      <div class="service"><span class="service-icon">▧</span><strong>طباعة المستندات</strong></div>
-      <div class="service"><span class="service-icon">▦</span><strong>الاستنساخ والتصوير</strong></div>
-    </div>
-    <p class="note"><b>شلون تطلب؟</b><br>أرسل ملفاتك أو صور مستمسكاتك عبر واتساب أو تلغرام، واكتب نوع الخدمة المطلوبة حتى نراجع طلبك ونجهزه بسهولة.</p>
-  </section>
-
-  <section class="hours" aria-label="أوقات الدوام">
-    <span class="clock">◷</span>
-    <span class="hours-info"><small>أوقات الدوام اليومية</small><strong>من 8:00 صباحاً إلى 11:00 مساءً</strong></span>
-    <span class="hours-badge">يومياً</span>
-  </section>
-
-  <section aria-label="التواصل">
-    <div class="contact-title"><h2>أرسل ملفاتك الآن</h2><p>اختار التطبيق المناسب وتواصل ويانه مباشرة</p></div>
-    <div class="actions">
-      <a class="action wa" href="https://wa.me/9647515730288?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A3%D8%B1%D8%B3%D9%84%20%D9%85%D9%84%D9%81%D8%A7%D8%AA%20%D9%84%D9%84%D8%B7%D8%A8%D8%A7%D8%B9%D8%A9%20%D9%88%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%86%D8%B3%D8%A7%D8%AE" target="_blank" rel="noopener">
-        <span class="brand-icon"><svg viewBox="0 0 24 24"><path d="M20.2 11.7a8.2 8.2 0 0 1-12.1 7.2L3 20l1.2-4.8a8.2 8.2 0 1 1 16-3.5Z"/><path d="M8.5 8.2c.3-.6.6-.6 1-.6h.5c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4 0 .7.5.8 1.2 1.5 2 2 .3.2.5.2.7 0l.8-.9c.2-.2.4-.3.7-.2l1.7.8c.3.1.4.3.4.6 0 .4-.2 1.1-.7 1.5-.5.4-1.1.6-1.8.5-1-.1-2.3-.7-3.7-1.9-1.4-1.2-2.4-2.7-2.7-3.8-.3-.9-.1-1.7.5-2.3Z"/></svg></span>
-        <span class="details"><strong>WhatsApp</strong><small>إرسال الملفات والصور مباشرة</small></span>
-        <span class="arrow">‹</span>
-      </a>
-      <a class="action tg" href="https://t.me/+9647515730288" target="_blank" rel="noopener">
-        <span class="brand-icon"><svg viewBox="0 0 24 24"><path d="m21 3-7.2 18-3.7-7.1L3 10.2 21 3Z"/><path d="m10.1 13.9 4.2-4.2"/></svg></span>
-        <span class="details"><strong>Telegram</strong><small>إرسال الملفات والمستندات</small></span>
-        <span class="arrow">‹</span>
-      </a>
-    </div>
-  </section>
-  <footer><b>ALFURAT</b><br>الفرات للتصوير والاستنساخ · خدمتك أسهل وأسرع</footer>
-</main>
-</body>
-</html>
+<div id="login" class="login-screen"><div class="login-card"><div class="login-logo">ف</div><h1>مكتب الفرات</h1><p>نظام تنظيم وإدارة عقود بيع وشراء السيارات</p><form id="loginForm"><div class="field"><label>اسم المستخدم</label><input id="username" value="ALFURAT" autocomplete="username" required></div><div class="field"><label>كلمة المرور</label><input id="password" type="password" placeholder="أدخل كلمة المرور" autocomplete="current-password" required></div><button class="btn primary" style="width:100%;margin-top:8px">تسجيل الدخول</button><div class="error" id="loginError">واجهة الدخول قيد ربط حساب المالك.</div></form></div></div>
+<div id="app" class="layout hidden">
+<aside class="sidebar" id="sidebar"><div class="brand"><div class="brand-mark">ف</div><div><strong>مكتب الفرات</strong><small>لتنظيم عقود السيارات</small></div></div>
+<nav class="nav"><button class="active" data-page="dashboard"><span>▦</span>الرئيسية</button><button data-page="new"><span>＋</span>إنشاء عقد جديد</button><button data-page="contracts"><span>▤</span>العقود والأرشيف</button><button data-page="expenses"><span>◫</span>المصاريف والواردات</button><button data-page="reports"><span>▥</span>التقارير</button><button data-page="settings"><span>⚙</span>إعدادات المكتب</button></nav><div class="side-foot">ALFURAT CARS<br>نظام إدارة المكتب الإلكتروني</div></aside>
+<main class="main"><header class="topbar"><div><button class="mobile-menu" id="menu">☰</button> <small id="today"></small></div><div class="user-chip">● المالك · ALFURAT</div></header>
+<div class="content">
+<section id="page-dashboard"><div class="heading"><div><h1>لوحة التحكم</h1><p>ملخص أعمال مكتب الفرات وحركة العقود</p></div><button class="btn gold" data-go="new">＋ عقد جديد</button></div>
+<div class="stats"><div class="stat"><small>إجمالي العقود</small><strong id="totalContracts">—</strong><em>كل العقود المسجلة</em></div><div class="stat"><small>عقود هذا الشهر</small><strong id="monthContracts">—</strong><em>حسب تاريخ العقد</em></div><div class="stat"><small>إجمالي المبالغ</small><strong id="totalAmount">—</strong><em>المبالغ المسجلة بالدولار</em></div><div class="stat"><small>آخر رقم عقد</small><strong id="lastNumber">—</strong><em>تسلسل العقود</em></div></div>
+<div class="panel"><div class="panel-head"><h2>أحدث العقود</h2><button class="btn soft" data-go="contracts">عرض الأرشيف</button></div><div class="table-wrap"><table><thead><tr><th>رقم العقد</th><th>التاريخ</th><th>البائع</th><th>المشتري</th><th>السيارة</th><th>السعر</th></tr></thead><tbody id="recentRows"><tr><td colspan="6" class="empty">سجّل الدخول لعرض العقود</td></tr></tbody></table></div></div></section>
+<section id="page-new" class="hidden"><div class="heading"><div><h1>إنشاء عقد جديد</h1><p>أدخل بيانات طرفي العقد ومعلومات المركبة</p></div></div>
+<form id="contractForm" class="panel"><div class="panel-head"><h2>بيانات العقد</h2><span class="user-chip">عقد بيع وشراء مركبة</span></div><div class="form-grid">
+<div class="field"><label>اسم البائع *</label><input name="seller_name" required></div><div class="field"><label>اسم المشتري *</label><input name="buyer_name" required></div>
+<div class="field"><label>رقم هوية البائع</label><input name="seller_id_number"></div><div class="field"><label>رقم هوية المشتري</label><input name="buyer_id_number"></div>
+<div class="field"><label>هاتف البائع</label><input name="seller_phone"></div><div class="field"><label>هاتف المشتري</label><input name="buyer_phone"></div>
+<div class="field"><label>نوع السيارة *</label><input name="vehicle_type" required></div><div class="field"><label>الموديل</label><input name="vehicle_model"></div>
+<div class="field"><label>سنة الصنع</label><input name="vehicle_year" type="number"></div><div class="field"><label>رقم اللوحة</label><input name="plate_number"></div>
+<div class="field"><label>رقم الشاصي</label><input name="chassis_number"></div><div class="field"><label>رقم المحرك</label><input name="engine_number"></div>
+<div class="field"><label>سعر البيع *</label><input name="sale_price" type="number" min="0" step="0.01" required></div><div class="field"><label>المبلغ المستلم</label><input name="amount_received" type="number" min="0" step="0.01" value="0"></div>
+<div class="field"><label>أجور المكتب</label><input name="office_fee" type="number" min="0" step="0.01" value="0"></div><div class="field"><label>تاريخ العقد</label><input name="contract_date" type="date" id="contractDate"></div>
+<div class="field full"><label>ملاحظات وشروط إضافية</label><textarea name="notes"></textarea></div></div><div class="form-actions"><button class="btn primary" type="submit">حفظ العقد</button><button class="btn soft" type="reset">مسح الحقول</button></div><div class="error" id="contractMessage"></div></form></section>
+<section id="page-contracts" class="hidden"><div class="heading"><div><h1>العقود والأرشيف</h1><p>بحث ومراجعة العقود المسجلة</p></div><button class="btn gold" data-go="new">＋ عقد جديد</button></div><div class="panel"><div class="panel-head"><h2>سجل العقود</h2><input class="search" id="contractSearch" placeholder="ابحث برقم العقد أو الاسم أو اللوحة..."></div><div class="table-wrap"><table><thead><tr><th>رقم العقد</th><th>التاريخ</th><th>البائع</th><th>المشتري</th><th>السيارة</th><th>رقم اللوحة</th><th>السعر</th></tr></thead><tbody id="allRows"><tr><td colspan="7" class="empty">لا توجد بيانات للعرض</td></tr></tbody></table></div></div></section>
+<section id="page-expenses" class="hidden"><div class="heading"><div><h1>المصاريف والواردات</h1><p>متابعة المصاريف اليومية وحركة الصندوق</p></div></div><div class="panel"><p class="empty">سيتم تفعيل سجل المصاريف وربطه بقاعدة البيانات في المرحلة التالية.</p></div></section>
+<section id="page-reports" class="hidden"><div class="heading"><div><h1>التقارير</h1><p>ملخص الأداء المالي وحركة العقود</p></div></div><div class="panel"><p class="empty">سيتم تجهيز تقارير شهرية وسنوية قابلة للطباعة بعد إكمال ربط البيانات.</p></div></section>
+<section id="page-settings" class="hidden"><div class="heading"><div><h1>إعدادات المكتب</h1><p>بيانات المكتب وشروط العقد</p></div></div><div class="panel"><div class="form-grid"><div class="field"><label>اسم المكتب</label><input value="مكتب الفرات" disabled></div><div class="field"><label>اسم المستخدم</label><input value="ALFURAT" disabled></div></div><p class="empty">إعداد بيانات المالك وشروط العقد والطباعة ستُربط لاحقاً.</p></div></section>
+</div></main></div>
+<script>
+const SUPABASE_URL="https://ronnpnlovozzgngqoxrh.supabase.co";
+const SUPABASE_KEY="sb_publishable__Cru-1Cea_ls21wcPsUYyw_KciGxsHD";
+let db=null,contracts=[];
+const $=id=>document.getElementById(id);
+const fmt=n=>Number(n||0).toLocaleString('en-US');
+function showPage(page){document.querySelectorAll('[id^="page-"]').forEach(x=>x.classList.add('hidden'));$('page-'+page).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));$('sidebar').classList.remove('open');}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>showPage(b.dataset.go));
+$('menu').onclick=()=>$('sidebar').classList.toggle('open');
+$('today').textContent=new Intl.DateTimeFormat('ar-IQ',{dateStyle:'full'}).format(new Date());
+$('contractDate').value=new Date().toISOString().slice(0,10);
+function renderRows(rows,target,cols){$(target).innerHTML=rows.length?rows.map(c=>'<tr><td>'+(''+(c.contract_number??'—'))+'</td><td>'+((c.contract_date||'').slice(0,10))+'</td><td>'+ (c.seller_name||'—')+'</td><td>'+(c.buyer_name||'—')+'</td><td>'+[c.vehicle_type,c.vehicle_model].filter(Boolean).join(' / ')+'</td>'+(cols===7?'<td>'+(c.plate_number||'—')+'</td>':'')+'<td>'+fmt(c.sale_price)+'</td></tr>').join(''):'<tr><td colspan="'+cols+'" class="empty">لا توجد عقود مسجلة حالياً</td></tr>'}
+function refresh(){if(!db)return;db.from('contracts').select('*').order('contract_date',{ascending:false}).limit(300).then(({data,error})=>{if(error){console.error(error);return}contracts=data||[];$('totalContracts').textContent=fmt(contracts.length);let m=new Date().toISOString().slice(0,7);$('monthContracts').textContent=fmt(contracts.filter(x=>(x.contract_date||'').startsWith(m)).length);$('totalAmount').textContent=fmt(contracts.reduce((a,x)=>a+Number(x.sale_price||0),0))+' $';$('lastNumber').textContent=contracts.length?fmt(Math.max(...contracts.map(x=>Number(x.contract_number)||0))):'—';renderRows(contracts.slice(0,7),'recentRows',6);filterRows();});}
+function filterRows(){let q=($('contractSearch').value||'').toLowerCase();let rows=contracts.filter(c=>[c.contract_number,c.seller_name,c.buyer_name,c.plate_number,c.chassis_number].join(' ').toLowerCase().includes(q));renderRows(rows,'allRows',7)}
+$('contractSearch').addEventListener('input',filterRows);
+$('loginForm').addEventListener('submit',async e=>{e.preventDefault();$('loginError').textContent='نظام تسجيل دخول المالك لم يكتمل إعداده بعد. لم يتم إنشاء حساب الدخول بعد.';});
+$('contractForm').addEventListener('submit',async e=>{e.preventDefault();$('contractMessage').textContent='حفظ العقود سيتاح بعد إكمال إعداد حساب المالك وسياسات الوصول الآمن.';});
+try{if(window.supabase&&SUPABASE_URL.startsWith('https'))db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);}catch(e){console.error(e)}
+</script></body></html>
