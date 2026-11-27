@@ -1,0 +1,18 @@
+{
+  "name": "مكتب الفرات لتنظيم عقود السيارات",
+  "short_name": "مكتب الفرات",
+  "description": "نظام تنظيم وإدارة عقود بيع وشراء السيارات",
+  "start_url": "./?source=desktop-shortcut",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07162f",
+  "theme_color": "#101c2c",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
