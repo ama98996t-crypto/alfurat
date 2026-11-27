@@ -324,6 +324,58 @@ function runReport(){
  $('reportRows').innerHTML=rows.length?rows.map(c=>'<tr><td>'+esc(c.contract_number)+'</td><td>'+esc(c.contract_date)+'</td><td>'+esc(c.seller_name)+'</td><td>'+esc(c.buyer_name)+'</td><td>'+fmt(c.sale_price)+'</td><td>'+fmt(c.amount_received)+'</td><td>'+fmt(c.remaining_amount)+'</td></tr>').join(''):'<tr><td colspan="7" class="empty">لا توجد عقود ضمن هذه الفترة</td></tr>';
 }
 $('runReport').addEventListener('click',runReport);
+
+let editingContractId=null;
+function startEditContract(id){
+ const c=contracts.find(x=>String(x.id)===String(id));
+ if(!c){alert('لم يتم العثور على العقد في الأرشيف. حدّث القائمة وحاول مرة أخرى.');return;}
+ const form=$('contractForm');
+ form.reset();
+ const values={
+  contract_kind:c.contract_kind||'car',
+  contract_date:(c.contract_date||'').slice(0,10),
+  contract_time:String(c.contract_time||'').slice(0,5),
+  registered_owner_name:c.registered_owner_name,
+  seller_name:c.seller_name,seller_phone:c.seller_phone,seller_id_type:c.seller_id_type,seller_id_number:c.seller_id_number,seller_address:c.seller_address,
+  buyer_name:c.buyer_name,buyer_phone:c.buyer_phone,buyer_id_type:c.buyer_id_type,buyer_id_number:c.buyer_id_number,buyer_address:c.buyer_address,
+  vehicle_make:c.vehicle_make,vehicle_type:c.vehicle_type,vehicle_year:c.vehicle_year,vehicle_color:c.vehicle_color,registration_document_type:c.registration_document_type,annual_registration_number:c.annual_registration_number,plate_category:c.plate_category,plate_number:c.vehicle_plate_number,chassis_number:c.chassis_number,
+  currency:c.currency||'USD',sale_price:c.sale_price,amount_received:c.amount_received,remaining_amount:c.remaining_amount,private_fee:c.private_fee,load_fee:c.load_fee,notes:c.notes,
+  sign_contract_date:(c.contract_date||'').slice(0,10),sign_contract_time:String(c.contract_time||'').slice(0,5),buyer_sign_name:c.buyer_sign_name,seller_sign_name:c.seller_sign_name
+ };
+ Object.entries(values).forEach(([name,value])=>{
+  const fields=form.querySelectorAll('[name="'+name+'"]');
+  fields.forEach(el=>{
+   if(el.type==='radio')el.checked=el.value===String(value??'');
+   else el.value=value??'';
+  });
+ });
+ document.querySelectorAll('.choice-card').forEach(card=>card.classList.toggle('selected',!!card.querySelector('input')?.checked));
+ editingContractId=c.id;
+ $('wizardSave').textContent='حفظ التعديلات';
+ $('cancelEdit').classList.remove('hidden');
+ $('contractMessage').textContent='تعديل العقد رقم '+c.contract_number+' — لن تُحفظ التغييرات إلا عند الضغط على حفظ التعديلات.';
+ $('summaryStatus').textContent='تعديل عقد';
+ updateRemaining();
+ updateWizardSummary();
+ wizardGo(0);
+ $('wizardTitle').textContent='تعديل العقد رقم '+c.contract_number;
+ showPage('new');
+}
+function clearEditMode(){
+ editingContractId=null;
+ $('wizardSave').textContent='حفظ العقد';
+ $('cancelEdit').classList.add('hidden');
+ $('summaryStatus').textContent='مسودة';
+ $('contractMessage').textContent='';
+}
+$('cancelEdit').addEventListener('click',()=>{
+ clearEditMode();
+ $('contractForm').reset();
+ setAutoDateTime();
+ wizardGo(0);
+ showPage('contracts');
+});
+
 let wizardStep=0;
 const wizardTitles=['بيانات العقد','بيانات المالك المسجل','بيانات البائع','بيانات المشتري','تفاصيل المركبة','المبلغ والملاحظات','التاريخ والتوقيع','مراجعة العقد'];
 function wizardGo(n){
