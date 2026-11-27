@@ -8,7 +8,7 @@
 <link rel="manifest" href="./site.webmanifest">
 <meta name="application-name" content="مكتب الفرات">
 <meta name="apple-mobile-web-app-title" content="مكتب الفرات">
-<meta name="apple-mobile-web-app-capable" content="yes"><title>مكتب الفرات | تنظيم عقود السيارات</title>
+<meta name="apple-mobile-web-app-capable" content="yes">\n<link rel="apple-touch-icon" href="./alfurat-icon-192.png"><title>مكتب الفرات | تنظيم عقود السيارات</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 #printArea{display:none}@media print{
@@ -129,7 +129,7 @@ body *{visibility:hidden!important}
 <div id="app" class="layout hidden">
 <aside class="sidebar" id="sidebar"><div class="brand"><div class="brand-mark"><svg viewBox="0 0 120 120" role="img" aria-label="شعار الفرات"><defs><linearGradient id="fgold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset=".48" stop-color="#d4a94e"/><stop offset="1" stop-color="#9b6d25"/></linearGradient></defs><path d="M18 74C29 31 82 8 104 30c17 17-3 59-39 73-22 9-43 4-51-8" fill="none" stroke="url(#fgold)" stroke-width="5" stroke-linecap="round"/><path d="M14 61C28 25 76 6 101 21" fill="none" stroke="#e8edf5" stroke-width="3" stroke-linecap="round"/><path d="M25 83h52c10 0 17-7 17-17V49c0-9-7-16-16-16H55" fill="none" stroke="url(#fgold)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M67 17l9 9-9 9-9-9z" fill="url(#fgold)"/></svg></div><div><strong>مكتب الفرات</strong><small>لتنظيم عقود السيارات</small></div></div>
 <nav class="nav"><button class="active" data-page="dashboard"><span>▦</span>الرئيسية</button><button data-page="new"><span>＋</span>إنشاء عقد جديد</button><button data-page="contracts"><span>▤</span>العقود والأرشيف</button><button data-page="expenses"><span>◫</span>المصاريف والواردات</button><button data-page="reports"><span>▥</span>التقارير</button><button data-page="settings"><span>⚙</span>إعدادات المكتب</button></nav><div class="side-foot">ALFURAT CARS<br>نظام إدارة المكتب الإلكتروني</div></aside>
-<main class="main"><header class="topbar"><div><button class="mobile-menu" id="menu">☰</button> <small id="today"></small></div><div class="user-chip">● المالك · ALFURAT</div></header>
+<main class="main"><header class="topbar"><div><button class="mobile-menu" id="menu">☰</button> <small id="today"></small></div><div style="display:flex;align-items:center;gap:10px"><button id="installAppBtn" class="btn soft" type="button" hidden>تثبيت التطبيق</button><div class="user-chip">● المالك · ALFURAT</div></div></header>
 <div class="content">
 <section id="page-dashboard"><div class="heading"><div><h1>لوحة التحكم</h1><p>ملخص أعمال مكتب الفرات وحركة العقود</p></div><button class="btn gold" data-go="new">＋ عقد جديد</button></div>
 <div class="stats"><div class="stat"><small>إجمالي العقود</small><strong id="totalContracts">—</strong><em>كل العقود المسجلة</em></div><div class="stat"><small>عقود هذا الشهر</small><strong id="monthContracts">—</strong><em>حسب تاريخ العقد</em></div><div class="stat"><small>إجمالي المبالغ</small><strong id="totalAmount">—</strong><em>المبالغ المسجلة بالدولار</em></div><div class="stat"><small>آخر رقم عقد</small><strong id="lastNumber">—</strong><em>تسلسل العقود</em></div></div>
@@ -350,4 +350,25 @@ function buildReview(){
  updateRemaining();
 }
 try{if(window.supabase&&SUPABASE_URL.startsWith('https'))db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);}catch(e){console.error(e)}
+
+let deferredInstallPrompt=null;
+window.addEventListener('beforeinstallprompt',event=>{
+ event.preventDefault();deferredInstallPrompt=event;
+ const button=$('installAppBtn');if(button)button.hidden=false;
+});
+window.addEventListener('appinstalled',()=>{
+ const button=$('installAppBtn');if(button)button.hidden=true;
+ deferredInstallPrompt=null;
+});
+const installButton=$('installAppBtn');
+if(installButton)installButton.addEventListener('click',async()=>{
+ if(!deferredInstallPrompt){alert('من قائمة Chrome اختر: تثبيت مكتب الفرات كتطبيق.');return;}
+ deferredInstallPrompt.prompt();
+ const result=await deferredInstallPrompt.userChoice;
+ if(result.outcome==='accepted')installButton.hidden=true;
+ deferredInstallPrompt=null;
+});
+if('serviceWorker' in navigator){
+ window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js',{scope:'./'}).catch(err=>console.error('PWA service worker:',err)));
+}
 </script></body></html>
