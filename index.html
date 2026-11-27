@@ -63,41 +63,86 @@ body *{visibility:hidden!important}
 <div class="wizard-top"><div><small>إنشاء عقد جديد</small><h2 id="wizardTitle">نوع العقد وبياناته</h2></div><div class="wizard-count"><b id="stepCount">01</b><span>/ 05</span></div></div>
 <div class="progress-track"><span id="wizardProgress"></span></div>
 <div class="wizard-steps">
-<div class="wiz-step active" data-step-label="0"><i>١</i><span>نوع العقد</span></div><div class="wiz-step" data-step-label="1"><i>٢</i><span>الأطراف</span></div><div class="wiz-step" data-step-label="2"><i>٣</i><span>المركبة</span></div><div class="wiz-step" data-step-label="3"><i>٤</i><span>المبالغ</span></div><div class="wiz-step" data-step-label="4"><i>٥</i><span>المراجعة</span></div>
+<div class="wiz-step active" data-step-label="0"><i>١</i><span>بيانات العقد</span></div>
+<div class="wiz-step" data-step-label="1"><i>٢</i><span>المالك المسجل</span></div>
+<div class="wiz-step" data-step-label="2"><i>٣</i><span>بيانات البائع</span></div>
+<div class="wiz-step" data-step-label="3"><i>٤</i><span>بيانات المشتري</span></div>
+<div class="wiz-step" data-step-label="4"><i>٥</i><span>المركبة</span></div>
+<div class="wiz-step" data-step-label="5"><i>٦</i><span>المبالغ</span></div>
+<div class="wiz-step" data-step-label="6"><i>٧</i><span>التاريخ والتوقيع</span></div>
+<div class="wiz-step" data-step-label="7"><i>٨</i><span>المراجعة</span></div>
 </div>
 <div class="wizard-pane active" data-step="0">
-<div class="section-intro"><span class="section-icon">▣</span><div><h3>اختر نوع العقد</h3><p>حدد نوع المركبة التي يتم تنظيم عقد بيعها</p></div></div>
-<div class="choice-grid"><label class="choice-card selected"><input type="radio" name="contract_kind" value="car" checked><span class="choice-symbol">🚘</span><strong>عقد بيع سيارة</strong><small>السيارات والمركبات ذات العجلات الأربع</small></label><label class="choice-card"><input type="radio" name="contract_kind" value="motorcycle"><span class="choice-symbol">🏍</span><strong>عقد بيع دراجة</strong><small>الدراجات النارية بمختلف أنواعها</small></label></div>
-<div class="form-grid wizard-meta"><div class="field"><label>رقم العقد</label><input value="يُنشأ تلقائياً عند الحفظ" readonly></div><div class="field"><label>منظم العقد</label><input value="مكتب الفرات" readonly></div><div class="field"><label>تاريخ العقد</label><input id="contractDate" name="contract_date" type="date" readonly></div><div class="field"><label>وقت تنظيم العقد</label><input id="contractTime" name="contract_time" type="time" readonly></div></div>
+<div class="section-intro"><span class="section-icon">▣</span><div><h3>بيانات العقد</h3><p>اختر نوع العقد وحدد بياناته الأساسية</p></div></div>
+<div class="choice-grid">
+<label class="choice-card selected"><input type="radio" name="contract_kind" value="car" checked><span class="choice-symbol">🚘</span><strong>عقد بيع سيارة</strong><small>السيارات والمركبات ذات العجلات الأربع</small></label>
+<label class="choice-card"><input type="radio" name="contract_kind" value="motorcycle"><span class="choice-symbol">🏍</span><strong>عقد بيع دراجة</strong><small>الدراجات النارية بمختلف أنواعها</small></label>
 </div>
-<div class="wizard-pane" data-step="1">
-<div class="section-intro"><span class="section-icon">♙</span><div><h3>بيانات أطراف العقد</h3><p>أدخل المعلومات الشخصية للبائع والمشتري بدقة</p></div></div>
-<div class="party-grid">
-<div class="party-card"><h3>بيانات البائع</h3><div class="form-grid"><div class="field full"><label>اسم البائع بالكامل *</label><input name="seller_name" required></div><div class="field full"><label>عنوان البائع</label><input name="seller_address" placeholder="المحافظة، القضاء، المنطقة، أقرب نقطة دالة"></div><div class="field"><label>نوع الهوية</label><select name="seller_id_type"><option value="">اختر نوع الهوية</option><option>البطاقة الوطنية</option><option>هوية الأحوال المدنية</option><option>جواز السفر</option></select></div><div class="field"><label>رقم الهوية</label><input name="seller_id_number"></div><div class="field full"><label>رقم الهاتف</label><input name="seller_phone" inputmode="tel"></div></div></div>
-<div class="party-card"><h3>بيانات المشتري</h3><div class="form-grid"><div class="field full"><label>اسم المشتري بالكامل *</label><input name="buyer_name" required></div><div class="field full"><label>عنوان المشتري</label><input name="buyer_address" placeholder="المحافظة، القضاء، المنطقة، أقرب نقطة دالة"></div><div class="field"><label>نوع الهوية</label><select name="buyer_id_type"><option value="">اختر نوع الهوية</option><option>البطاقة الوطنية</option><option>هوية الأحوال المدنية</option><option>جواز السفر</option></select></div><div class="field"><label>رقم الهوية</label><input name="buyer_id_number"></div><div class="field full"><label>رقم الهاتف</label><input name="buyer_phone" inputmode="tel"></div></div></div>
+<div class="form-grid wizard-meta">
+<div class="field"><label>رقم العقد</label><input value="يُنشأ تلقائياً عند الحفظ" readonly></div>
+<div class="field"><label>منظم العقد</label><input value="مكتب الفرات" readonly></div>
+<div class="field"><label>تاريخ العقد</label><input id="contractDate" name="contract_date" type="date" readonly></div>
+<div class="field"><label>وقت تنظيم العقد</label><input id="contractTime" name="contract_time" type="time" readonly></div>
 </div></div>
-<div class="wizard-pane" data-step="2">
-<div class="section-intro"><span class="section-icon">🚘</span><div><h3>تفاصيل المركبة</h3><p>أدخل مواصفات المركبة وأرقامها التعريفية</p></div></div>
+<div class="wizard-pane" data-step="1"><div class="section-intro"><span class="section-icon">♙</span><div><h3>بيانات المالك المسجل</h3><p>أدخل بيانات صاحب المركبة كما مثبتة في مستند التسجيل</p></div></div>
 <div class="form-grid">
-<div class="field"><label>نوع المركبة *</label><input name="vehicle_type" required placeholder="مثال: تويوتا كامري"></div><div class="field"><label>الموديل / الفئة</label><input name="vehicle_model" placeholder="مثال: GLI"></div>
-<div class="field"><label>سنة الصنع</label><input name="vehicle_year" type="number" min="1950" max="2099"></div><div class="field"><label>رقم اللوحة</label><input name="plate_number"></div>
-<div class="field"><label>رقم الشاصي</label><input name="chassis_number"></div><div class="field"><label>رقم المحرك</label><input name="engine_number"></div>
-<div class="field"><label>رقم السنوية</label><input name="annual_registration_number"></div><div class="field"><label>رقم الوكالة</label><input name="agency_number"></div>
-<div class="field"><label>جهة إصدار الوكالة</label><input name="agency_issuer"></div><div class="field"><label>تاريخ إصدار الوكالة</label><input name="agency_issue_date" type="date"></div>
+<div class="field"><label>اسم المالك المسجل *</label><input name="registered_owner_name" required></div>
+<div class="field"><label>هاتف المالك</label><input name="registered_owner_phone" inputmode="tel"></div>
+<div class="field full"><label>عنوان المالك</label><input name="registered_owner_address"></div>
 </div></div>
-<div class="wizard-pane" data-step="3">
-<div class="section-intro"><span class="section-icon">د.ع</span><div><h3>المبالغ وشروط الدفع</h3><p>أدخل سعر البيع والمبلغ المستلم وسيتم حساب الباقي تلقائياً</p></div></div>
+<div class="wizard-pane" data-step="2"><div class="section-intro"><span class="section-icon">ب</span><div><h3>بيانات البائع</h3><p>أدخل معلومات الطرف الأول كما تظهر في وثيقة الهوية</p></div></div>
+<div class="form-grid">
+<div class="field"><label>اسم البائع بالكامل *</label><input name="seller_name" required></div>
+<div class="field"><label>هاتف البائع</label><input name="seller_phone" inputmode="tel"></div>
+<div class="field"><label>نوع الهوية</label><select name="seller_id_type"><option value="">اختر نوع الهوية</option><option>البطاقة الوطنية</option><option>هوية الأحوال المدنية</option><option>جواز السفر</option><option>إجازة سوق</option></select></div>
+<div class="field"><label>رقم الهوية</label><input name="seller_id_number"></div>
+<div class="field full"><label>عنوان البائع</label><input name="seller_address"></div>
+</div></div>
+<div class="wizard-pane" data-step="3"><div class="section-intro"><span class="section-icon">م</span><div><h3>بيانات المشتري</h3><p>أدخل معلومات الطرف الثاني كما تظهر في وثيقة الهوية</p></div></div>
+<div class="form-grid">
+<div class="field"><label>اسم المشتري بالكامل *</label><input name="buyer_name" required></div>
+<div class="field"><label>هاتف المشتري</label><input name="buyer_phone" inputmode="tel"></div>
+<div class="field"><label>نوع الهوية</label><select name="buyer_id_type"><option value="">اختر نوع الهوية</option><option>البطاقة الوطنية</option><option>هوية الأحوال المدنية</option><option>جواز السفر</option><option>إجازة سوق</option></select></div>
+<div class="field"><label>رقم الهوية</label><input name="buyer_id_number"></div>
+<div class="field full"><label>عنوان المشتري</label><input name="buyer_address"></div>
+</div></div>
+<div class="wizard-pane" data-step="4"><div class="section-intro"><span class="section-icon">🚘</span><div><h3>تفاصيل المركبة</h3><p>المواصفات وأرقام التسجيل والوكالة</p></div></div>
+<div class="form-grid">
+<div class="field"><label>الماركة *</label><input name="vehicle_make" required placeholder="مثال: تويوتا"></div>
+<div class="field"><label>الموديل / الفئة</label><input name="vehicle_model" placeholder="مثال: كامري GLI"></div>
+<div class="field"><label>سنة الصنع</label><input name="vehicle_year" type="number" min="1950" max="2099"></div>
+<div class="field"><label>اللون</label><input name="vehicle_color" placeholder="مثال: أبيض"></div>
+<div class="field"><label>نوع المركبة *</label><input name="vehicle_type" required placeholder="سيارة صالون / حمل"></div>
+<div class="field"><label>نوع وثيقة التسجيل</label><select name="registration_document_type"><option value="أوراق">أوراق</option><option value="سنوية">سنوية</option><option value="لوحات">لوحات</option></select></div>
+<div class="field"><label>رقم التسجيل / السنوية</label><input name="annual_registration_number"></div>
+<div class="field"><label>تصنيف اللوحة</label><input name="plate_category" placeholder="خصوصي / أجرة / حمل"></div>
+<div class="field"><label>رقم اللوحة</label><input name="plate_number"></div>
+<div class="field"><label>رقم الشاصي</label><input name="chassis_number"></div>
+<div class="field"><label>رقم المحرك</label><input name="engine_number"></div>
+<div class="field"><label>رقم الوكالة</label><input name="agency_number"></div>
+<div class="field"><label>جهة إصدار الوكالة</label><input name="agency_issuer"></div>
+<div class="field"><label>تاريخ إصدار الوكالة</label><input name="agency_issue_date" type="date"></div>
+</div></div>
+<div class="wizard-pane" data-step="5"><div class="section-intro"><span class="section-icon">د.ع</span><div><h3>المبلغ والملاحظات</h3><p>حدد قيمة البيع والمبالغ المستلمة والرسوم وشروط العقد</p></div></div>
 <div class="form-grid finance-form">
-<div class="field"><label>عملة العقد</label><select name="currency"><option value="USD">دولار أمريكي</option><option value="IQD">دينار عراقي</option></select></div><div class="field"><label>سعر البيع *</label><input name="sale_price" type="number" min="0" step="0.01" required></div>
-<div class="field"><label>المبلغ المستلم</label><input name="amount_received" id="amountReceived" type="number" min="0" step="0.01" value="0"></div><div class="field"><label>المبلغ المتبقي</label><input name="remaining_amount" id="remainingAmount" type="number" value="0" readonly></div>
-<div class="field full"><label>ملاحظات وشروط إضافية</label><textarea name="notes" rows="4" placeholder="اكتب الشروط أو الملاحظات المتفق عليها بين الطرفين..."></textarea></div>
-</div><div class="live-balance"><span>المبلغ المتبقي على المشتري</span><strong id="remainingPreview">0</strong></div>
-</div>
-<div class="wizard-pane" data-step="4">
-<div class="section-intro"><span class="section-icon">✓</span><div><h3>مراجعة العقد</h3><p>تأكد من صحة المعلومات قبل حفظ العقد النهائي</p></div></div>
-<div id="reviewSummary" class="review-grid"></div>
-<div class="review-note">بعد الحفظ سيُمنح العقد رقماً تسلسلياً تلقائياً، ويمكنك فتحه من الأرشيف وتعديله أو طباعته.</div>
-</div>
+<div class="field"><label>عملة العقد</label><select name="currency"><option value="USD">دولار أمريكي</option><option value="IQD">دينار عراقي</option></select></div>
+<div class="field"><label>سعر البيع الإجمالي *</label><input name="sale_price" type="number" min="0" step="0.01" required></div>
+<div class="field"><label>المبلغ المستلم</label><input name="amount_received" id="amountReceived" type="number" min="0" step="0.01" value="0"></div>
+<div class="field"><label>المبلغ المتبقي</label><input name="remaining_amount" id="remainingAmount" type="number" value="0" readonly></div>
+<div class="field"><label>أجور المكتب</label><input name="office_fee" type="number" min="0" step="0.01" value="0"></div>
+<div class="field"><label>أجور خاصة</label><input name="private_fee" type="number" min="0" step="0.01" value="0"></div>
+<div class="field"><label>أجور تحميل</label><input name="load_fee" type="number" min="0" step="0.01" value="0"></div>
+<div class="field full"><label>الملاحظات وشروط البيع</label><textarea name="notes" rows="4"></textarea></div>
+</div><div class="live-balance"><span>المبلغ المتبقي على المشتري</span><strong id="remainingPreview">0</strong></div></div>
+<div class="wizard-pane" data-step="6"><div class="section-intro"><span class="section-icon">✎</span><div><h3>التاريخ والتوقيع</h3><p>راجع موعد تنظيم العقد وأسماء الموقعين</p></div></div>
+<div class="form-grid">
+<div class="field"><label>تاريخ العقد</label><input name="sign_contract_date" type="date"></div>
+<div class="field"><label>وقت العقد</label><input name="sign_contract_time" type="time"></div>
+<div class="field"><label>اسم المشتري للتوقيع</label><input name="buyer_sign_name"></div>
+<div class="field"><label>اسم البائع للتوقيع</label><input name="seller_sign_name"></div>
+<div class="field full"><p style="font-size:11px;color:#8290a0">تُطبع مساحات مخصصة لتوقيع وبصمة الطرفين على نسخة العقد الورقية.</p></div>
+</div></div>
+<div class="wizard-pane" data-step="7"><div class="section-intro"><span class="section-icon">✓</span><div><h3>مراجعة العقد</h3><p>تأكد من جميع المعلومات قبل الحفظ النهائي</p></div></div><div id="reviewSummary" class="review-grid"></div><div class="review-note">بعد الحفظ يُنشأ رقم تسلسلي تلقائياً ويمكن فتح العقد من الأرشيف وتعديله وطباعته.</div></div>
 <div class="wizard-footer"><button type="button" class="btn soft" id="wizardPrev" disabled>السابق</button><div class="wizard-footer-right"><button type="button" class="btn gold" id="wizardNext">التالي ←</button><button type="submit" class="btn primary hidden" id="wizardSave">حفظ العقد</button><button type="button" class="btn soft" id="printCurrentContract">معاينة الطباعة</button></div></div>
 <div class="error" id="contractMessage"></div>
 </form></section>
@@ -155,7 +200,7 @@ $('contractSearch').addEventListener('input',filterRows);
 function updateRemaining(){const price=Number(document.querySelector('[name=sale_price]').value||0),paid=Number($('amountReceived').value||0);$('remainingAmount').value=Math.max(0,price-paid).toFixed(2);if($('remainingPreview'))$('remainingPreview').textContent=Math.max(0,price-paid).toLocaleString('en-US');}
 document.querySelector('[name=sale_price]').addEventListener('input',updateRemaining);$('amountReceived').addEventListener('input',updateRemaining);
 $('loginForm').addEventListener('submit',async e=>{e.preventDefault();const btn=$('loginForm').querySelector('button');btn.disabled=true;btn.textContent='جارٍ التحقق...';$('loginError').textContent='';try{const username=$('username').value.trim().toUpperCase();if(username!=='ALFURAT')throw new Error('اسم المستخدم غير صحيح.');if(!db)throw new Error('تعذر الاتصال بخدمة تسجيل الدخول. حدّث الصفحة وتأكد من الإنترنت.');const {data,error}=await db.auth.signInWithPassword({email:'ama98996t@gmail.com',password:$('password').value});if(error)throw error;const {data:owner,error:ownerError}=await db.from('app_owner').select('user_id').eq('user_id',data.user.id).maybeSingle();if(ownerError||!owner){await db.auth.signOut();throw new Error('هذا الحساب غير مخوّل بالدخول كمالك.');} $('login').classList.add('hidden');$('app').classList.remove('hidden');$('loginError').textContent='';$('password').value='';refresh();loadExpenses();loadSettings();runReport();}catch(err){console.error('Login error:',err);$('loginError').textContent=err.message||'تعذر تسجيل الدخول. تحقق من البيانات.';}finally{btn.disabled=false;btn.textContent='تسجيل الدخول';}});
-$('contractForm').addEventListener('submit',async e=>{e.preventDefault();const btn=$('wizardSave');btn.disabled=true;btn.textContent='جارٍ الحفظ...';$('contractMessage').textContent='';try{const form=e.currentTarget;const fd=new FormData(form);const payload={seller_name:fd.get('seller_name'),seller_address:fd.get('seller_address')||null,buyer_name:fd.get('buyer_name'),buyer_address:fd.get('buyer_address')||null,seller_id_type:fd.get('seller_id_type')||null,buyer_id_type:fd.get('buyer_id_type')||null,seller_id_number:fd.get('seller_id_number')||null,buyer_id_number:fd.get('buyer_id_number')||null,seller_phone:fd.get('seller_phone')||null,buyer_phone:fd.get('buyer_phone')||null,contract_kind:fd.get('contract_kind')||'car',vehicle_type:fd.get('vehicle_type'),vehicle_model:fd.get('vehicle_model')||null,vehicle_year:fd.get('vehicle_year')?Number(fd.get('vehicle_year')):null,engine_number:fd.get('engine_number')||null,annual_registration_number:fd.get('annual_registration_number')||null,agency_number:fd.get('agency_number')||null,agency_issuer:fd.get('agency_issuer')||null,agency_issue_date:fd.get('agency_issue_date')||null,currency:fd.get('currency')||'USD',vehicle_plate_number:fd.get('plate_number')||null,chassis_number:fd.get('chassis_number')||null,sale_price:Number(fd.get('sale_price')||0),amount_received:Number(fd.get('amount_received')||0),remaining_amount:Math.max(0,Number(fd.get('sale_price')||0)-Number(fd.get('amount_received')||0)),contract_date:fd.get('contract_date')||$('contractDate').value,contract_time:fd.get('contract_time')||$('contractTime').value,notes:fd.get('notes')||null};const {data,error}=await db.from('contracts').insert(payload).select('*').single();if(error)throw error;contracts.unshift(data);$('contractMessage').textContent='تم حفظ العقد بنجاح. رقم العقد: '+data.contract_number;form.reset();setAutoDateTime();wizardGo(0);refresh();}catch(err){$('contractMessage').textContent='تعذر حفظ العقد: '+(err.message||'خطأ غير معروف');}finally{btn.disabled=false;btn.textContent='حفظ العقد';}});
+$('contractForm').addEventListener('submit',async e=>{e.preventDefault();const btn=$('wizardSave');btn.disabled=true;btn.textContent='جارٍ الحفظ...';$('contractMessage').textContent='';try{const form=e.currentTarget;const fd=new FormData(form);const payload={registered_owner_name:fd.get('registered_owner_name')||null,registered_owner_address:fd.get('registered_owner_address')||null,registered_owner_phone:fd.get('registered_owner_phone')||null,seller_name:fd.get('seller_name'),seller_address:fd.get('seller_address')||null,buyer_name:fd.get('buyer_name'),buyer_address:fd.get('buyer_address')||null,seller_id_type:fd.get('seller_id_type')||null,buyer_id_type:fd.get('buyer_id_type')||null,seller_id_number:fd.get('seller_id_number')||null,buyer_id_number:fd.get('buyer_id_number')||null,seller_phone:fd.get('seller_phone')||null,buyer_phone:fd.get('buyer_phone')||null,contract_kind:fd.get('contract_kind')||'car',vehicle_type:fd.get('vehicle_type'),vehicle_make:fd.get('vehicle_make')||null,vehicle_model:fd.get('vehicle_model')||null,vehicle_year:fd.get('vehicle_year')?Number(fd.get('vehicle_year')):null,vehicle_color:fd.get('vehicle_color')||null,registration_document_type:fd.get('registration_document_type')||null,plate_category:fd.get('plate_category')||null,engine_number:fd.get('engine_number')||null,annual_registration_number:fd.get('annual_registration_number')||null,agency_number:fd.get('agency_number')||null,agency_issuer:fd.get('agency_issuer')||null,agency_issue_date:fd.get('agency_issue_date')||null,currency:fd.get('currency')||'USD',vehicle_plate_number:fd.get('plate_number')||null,chassis_number:fd.get('chassis_number')||null,sale_price:Number(fd.get('sale_price')||0),amount_received:Number(fd.get('amount_received')||0),office_fee:Number(fd.get('office_fee')||0),private_fee:Number(fd.get('private_fee')||0),load_fee:Number(fd.get('load_fee')||0),remaining_amount:Math.max(0,Number(fd.get('sale_price')||0)-Number(fd.get('amount_received')||0)),contract_date:fd.get('sign_contract_date')||fd.get('contract_date')||$('contractDate').value,contract_time:fd.get('sign_contract_time')||fd.get('contract_time')||$('contractTime').value,notes:fd.get('notes')||null};const {data,error}=await db.from('contracts').insert(payload).select('*').single();if(error)throw error;contracts.unshift(data);$('contractMessage').textContent='تم حفظ العقد بنجاح. رقم العقد: '+data.contract_number;form.reset();setAutoDateTime();wizardGo(0);refresh();}catch(err){$('contractMessage').textContent='تعذر حفظ العقد: '+(err.message||'خطأ غير معروف');}finally{btn.disabled=false;btn.textContent='حفظ العقد';}});
 $('printCurrentContract').addEventListener('click',printCurrentContract);
 
 
@@ -201,13 +246,13 @@ function runReport(){
 }
 $('runReport').addEventListener('click',runReport);
 let wizardStep=0;
-const wizardTitles=['نوع العقد وبياناته','بيانات البائع والمشتري','تفاصيل المركبة','المبالغ وشروط الدفع','مراجعة العقد'];
+const wizardTitles=['بيانات العقد','بيانات المالك المسجل','بيانات البائع','بيانات المشتري','تفاصيل المركبة','المبلغ والملاحظات','التاريخ والتوقيع','مراجعة العقد'];
 function wizardGo(n){
- wizardStep=Math.max(0,Math.min(4,n));
+ wizardStep=Math.max(0,Math.min(7,n));
  document.querySelectorAll('.wizard-pane').forEach(p=>p.classList.toggle('active',Number(p.dataset.step)===wizardStep));
  document.querySelectorAll('.wiz-step').forEach((p,i)=>{p.classList.toggle('active',i===wizardStep);p.classList.toggle('done',i<wizardStep)});
- $('wizardTitle').textContent=wizardTitles[wizardStep];$('stepCount').textContent=String(wizardStep+1).padStart(2,'0');$('wizardProgress').style.width=((wizardStep+1)*20)+'%';
- $('wizardPrev').disabled=wizardStep===0;$('wizardNext').classList.toggle('hidden',wizardStep===4);$('wizardSave').classList.toggle('hidden',wizardStep!==4);
+ $('wizardTitle').textContent=wizardTitles[wizardStep];$('stepCount').textContent=String(wizardStep+1).padStart(2,'0');$('wizardProgress').style.width=((wizardStep+1)*12.5)+'%';
+ $('wizardPrev').disabled=wizardStep===0;$('wizardNext').classList.toggle('hidden',wizardStep===7);$('wizardSave').classList.toggle('hidden',wizardStep!==7);
  if(wizardStep===4)buildReview();
 }
 function stepValid(){
